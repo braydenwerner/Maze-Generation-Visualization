@@ -6,22 +6,20 @@ const canvas = document.getElementById('canvas')
 const ctx = canvas.getContext('2d')
 
 const mazeGenerationSpeed = 1
-let mazeStateIndex = 0
-let mazeInterval
+export let mazeGenerationIndex = 0
+let mazeGenerationInterval
 
-const mazeAnimationSpeed = 1
-let mazeAnimationIndex = 0
-let mazeAnimationInterval
+const mazeClearSpeed = 1
+export let mazeClearIndex = 0
+let mazeClearInterval
 const order = generateDiagonalWaveTraversal(NUM_TILES_WIDTH, NUM_TILES_HEIGHT)
 
-export let mazeIsClear = false
-
 export function renderMaze() {
-    const currentMaze = maze.mazeStates[mazeStateIndex]
+    const currentMaze = maze.mazeStates[mazeGenerationIndex]
 
-    mazeStateIndex += mazeGenerationSpeed
-    if (mazeStateIndex >= maze.mazeStates.length) {
-        mazeStateIndex = maze.mazeStates.length - 1
+    mazeGenerationIndex += mazeGenerationSpeed
+    if (mazeGenerationIndex >= maze.mazeStates.length) {
+        mazeGenerationIndex = maze.mazeStates.length - 1
     }
 
     ctx.fillStyle = colors.themeBlueForeground
@@ -58,23 +56,23 @@ export function renderMaze() {
     }
 
 
-    if (mazeStateIndex === maze.mazeStates.length - 1) {
-        clearInterval(mazeInterval)
+    if (mazeGenerationIndex === maze.mazeStates.length - 1) {
+        clearInterval(mazeGenerationInterval)
     }
 }
 
 export function clearMaze() {
-    mazeAnimationIndex += mazeAnimationSpeed
-    if (mazeAnimationIndex >= NUM_TILES_WIDTH * NUM_TILES_HEIGHT) {
-        mazeAnimationIndex = NUM_TILES_WIDTH * NUM_TILES_HEIGHT
+    mazeClearIndex += mazeClearSpeed
+    if (mazeClearIndex >= NUM_TILES_WIDTH * NUM_TILES_HEIGHT) {
+        mazeClearIndex = NUM_TILES_WIDTH * NUM_TILES_HEIGHT
     }
 
     ctx.fillStyle = colors.themeBlueForeground
-    for (let i = 0; i < mazeAnimationIndex; i++) {
+    for (let i = 0; i < mazeClearIndex; i++) {
         ctx.fillRect(order[i].col * tileWidth, order[i].row * tileHeight, tileWidth, tileHeight)
     }
 
-    if (mazeAnimationIndex === NUM_TILES_WIDTH * NUM_TILES_HEIGHT) {
-        clearInterval(mazeAnimationInterval)
+    if (mazeClearIndex === NUM_TILES_WIDTH * NUM_TILES_HEIGHT) {
+        clearInterval(mazeClearInterval)
     }
 }

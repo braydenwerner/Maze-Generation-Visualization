@@ -1,11 +1,10 @@
 import { NUM_TILES_HEIGHT, NUM_TILES_WIDTH } from './constants/constants.js'
-import { renderMaze, clearMaze, mazeIsClear } from './render.js'
+import { renderMaze, clearMaze, mazeGenerationIndex, mazeClearIndex } from './render.js'
 
 const canvas = document.getElementById('canvas')
 const generateMazeButton = document.getElementById('generateMazeButton')
 const clearMazeButton = document.getElementById('clearMazeButton')
 
-let isGenerating = false
 let generateMazeInterval
 let clearMazeInterval
 
@@ -14,18 +13,23 @@ window.onresize = initCanvas
 
 export let tileWidth, tileHeight
 
+let canGenerateMaze = true;
+
 generateMazeButton.onclick = () => {
-    if (!isGenerating && mazeIsClear) {
+    if (canGenerateMaze) {
+        canGenerateMaze = false
+        console.log("Generating maze")
         clearInterval(clearMazeInterval)
         generateMazeInterval = setInterval(renderMaze, 1)
-        isGenerating = true;
     }
 }
 
 clearMazeButton.onclick = () => {
+    canGenerateMaze = true
+    mazeClearIndex = 0;
+
     clearInterval(generateMazeInterval)
     clearMazeInterval = setInterval(clearMaze, 1)
-    isGenerating = true
 }
 
 function initCanvas() {
