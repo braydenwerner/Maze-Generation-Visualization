@@ -1,18 +1,21 @@
-import { maze, NUM_TILES_HEIGHT, NUM_TILES_WIDTH, colors } from './constants/constants.js'
+import { NUM_TILES_HEIGHT, NUM_TILES_WIDTH, colors } from './constants/constants.js'
 import { generateDiagonalWaveTraversal } from './algorithm/util.js'
 import { tileWidth, tileHeight } from './index.js'
+import { Maze } from './algorithm/maze.js'
 
 const canvas = document.getElementById('canvas')
 const ctx = canvas.getContext('2d')
 
 const mazeGenerationSpeed = 1
-export let mazeGenerationIndex = 0
+let mazeGenerationIndex = 0
 let mazeGenerationInterval
 
-const mazeClearSpeed = 1
-export let mazeClearIndex = 0
+const mazeClearSpeed = 10
+let mazeClearIndex = 0
 let mazeClearInterval
 const order = generateDiagonalWaveTraversal(NUM_TILES_WIDTH, NUM_TILES_HEIGHT)
+
+let maze = new Maze()
 
 export function renderMaze() {
     const currentMaze = maze.mazeStates[mazeGenerationIndex]
@@ -22,6 +25,7 @@ export function renderMaze() {
         mazeGenerationIndex = maze.mazeStates.length - 1
     }
 
+    ctx.lineWidth = 2;
     ctx.fillStyle = colors.themeBlueForeground
     ctx.fillRect(0, 0, canvas.width, canvas.height)
     for (let i = 0; i < currentMaze.length; i++) {
@@ -76,3 +80,17 @@ export function clearMaze() {
         clearInterval(mazeClearInterval)
     }
 }
+
+export function resetGenerateMazeIndex() {
+    mazeGenerationIndex = 0
+}
+
+export function resetClearMazeIndex() {
+    mazeClearIndex = 0
+}
+
+export function generateNewMaze() {
+    mazeGenerationIndex = 0
+    maze = new Maze()
+}
+

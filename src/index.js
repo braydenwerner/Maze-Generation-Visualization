@@ -1,5 +1,5 @@
 import { NUM_TILES_HEIGHT, NUM_TILES_WIDTH } from './constants/constants.js'
-import { renderMaze, clearMaze, mazeGenerationIndex, mazeClearIndex } from './render.js'
+import { renderMaze, clearMaze, resetClearMazeIndex, generateNewMaze } from './render.js'
 
 const canvas = document.getElementById('canvas')
 const generateMazeButton = document.getElementById('generateMazeButton')
@@ -18,15 +18,17 @@ let canGenerateMaze = true;
 generateMazeButton.onclick = () => {
     if (canGenerateMaze) {
         canGenerateMaze = false
-        console.log("Generating maze")
         clearInterval(clearMazeInterval)
         generateMazeInterval = setInterval(renderMaze, 1)
+
+        generateNewMaze();
     }
 }
 
 clearMazeButton.onclick = () => {
+    console.log('clear maze reached')
     canGenerateMaze = true
-    mazeClearIndex = 0;
+    resetClearMazeIndex();
 
     clearInterval(generateMazeInterval)
     clearMazeInterval = setInterval(clearMaze, 1)
