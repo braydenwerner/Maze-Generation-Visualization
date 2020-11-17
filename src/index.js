@@ -35,8 +35,9 @@ clearMazeButton.onclick = () => {
 }
 
 function initCanvas() {
-    canvas.width = window.innerWidth / 1.5
-    canvas.height = window.innerHeight / 1.5
+    const less = (window.innerHeight > window.innerWidth) ? window.innerWidth : window.innerHeight
+    canvas.width = less / 1.5
+    canvas.height = less / 1.5
     console.log(canvas.width)
 
     tileWidth = canvas.width / NUM_TILES_WIDTH

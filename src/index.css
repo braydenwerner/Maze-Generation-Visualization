@@ -1,3 +1,7 @@
+body {
+  background-color: #1B1E2B;
+}
+
 .mainContainer {
   display: flex;
   flex-direction: column;
@@ -5,14 +9,23 @@
 }
 
 .buttonContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
-.mainViewContainer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+canvas {
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-top: 50px;
+}
+
+button {
+  padding: 10px;
+  background-color: #FFCB6B
 }
