@@ -11,6 +11,8 @@ const dimensionHeader1 = document.getElementById('dimensionHeader1')
 const dimensionHeader2 = document.getElementById('dimensionHeader2')
 
 dimensionInput1.oninput = () => {
+    if (clearMazeInterval) clearInterval(clearMazeInterval)
+
     setWidth(parseInt(dimensionInput1.value))
     dimensionHeader1.innerText = 'Width: ' + dimensionInput1.value
 
@@ -19,6 +21,8 @@ dimensionInput1.oninput = () => {
 }
 
 dimensionInput2.oninput = () => {
+    if (clearMazeInterval) clearInterval(clearMazeInterval)
+
     setHeight(parseInt(dimensionInput2.value))
     dimensionHeader2.innerText = 'Height: ' + dimensionInput2.value
 
