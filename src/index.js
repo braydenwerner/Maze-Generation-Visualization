@@ -35,8 +35,6 @@ window.onresize = initCanvas
 export let tileWidth, tileHeight
 
 let canGenerateMaze = true
-let canClearMaze = false
-
 
 generateMazeButton.onclick = () => {
     if (canGenerateMaze) {
@@ -46,20 +44,19 @@ generateMazeButton.onclick = () => {
         generateMazeInterval = setInterval(renderMaze, 40)
 
         canGenerateMaze = false
-        canClearMaze = true
     }
 }
 
 clearMazeButton.onclick = () => {
-    if (canClearMaze) {
-        resetClearMazeIndex()
+    resetClearMazeIndex()
 
-        clearInterval(generateMazeInterval)
-        clearMazeInterval = setInterval(clearMaze, 1)
+    clearInterval(generateMazeInterval)
 
-        canGenerateMaze = true
-        canClearMaze = false
-    }
+    if (clearMazeInterval) clearInterval(clearMazeInterval)
+    clearMazeInterval = setInterval(clearMaze, 1)
+
+    canGenerateMaze = true
+
 }
 
 function initCanvas() {
