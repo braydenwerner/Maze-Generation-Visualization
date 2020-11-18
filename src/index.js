@@ -56,7 +56,6 @@ clearMazeButton.onclick = () => {
     clearMazeInterval = setInterval(clearMaze, 1)
 
     canGenerateMaze = true
-
 }
 
 function initCanvas() {

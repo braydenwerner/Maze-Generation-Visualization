@@ -32,7 +32,7 @@ function bfsHelper(NUM_TILES_WIDTH, NUM_TILES_HEIGHT, queue, order, memo) {
 
 function addNeighbors(NUM_TILES_WIDTH, NUM_TILES_HEIGHT, row, col, queue, memo) {
     //  add right, then down to queue
-    if (col + 1 < NUM_TILES_WIDTH && !memo[row][col + 1]) {
+    if (col + 1 < NUM_TILES_WIDTH && row < NUM_TILES_HEIGHT && !memo[row][col + 1]) {
         memo[row][col + 1] = true
         queue.push({
             col: col + 1,
@@ -40,7 +40,7 @@ function addNeighbors(NUM_TILES_WIDTH, NUM_TILES_HEIGHT, row, col, queue, memo) 
         })
     }
 
-    if (row + 1 < NUM_TILES_HEIGHT && !memo[row + 1][col]) {
+    if (row + 1 < NUM_TILES_HEIGHT && col < NUM_TILES_WIDTH && !memo[row + 1][col]) {
         memo[row + 1][col] = true
         queue.push({
             col: col,
