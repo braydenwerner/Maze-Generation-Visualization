@@ -15,27 +15,21 @@ function generateDiagonalWaveTraversal(NUM_TILES_WIDTH, NUM_TILES_HEIGHT) {
         col: 0
     })
 
-    // console.log(memo[0].length)
-    // console.log(memo.length)
-    // console.log(NUM_TILES_WIDTH)
-    // console.log(NUM_TILES_HEIGHT)
     bfsHelper(NUM_TILES_WIDTH, NUM_TILES_HEIGHT, queue, order, memo)
     return order
 }
 
+//  create wave pattern using a queue and adding neighbors of each cell to queue
 function bfsHelper(NUM_TILES_WIDTH, NUM_TILES_HEIGHT, queue, order, memo) {
     while (queue.length > 0) {
-        //  add item to answer
         order.push(queue[0])
 
-        //  add item's neighbors to the q, then remove item
         addNeighbors(NUM_TILES_WIDTH, NUM_TILES_HEIGHT, queue[0].row, queue[0].col, queue, memo)
         queue.shift()
     }
 }
 
 function addNeighbors(NUM_TILES_WIDTH, NUM_TILES_HEIGHT, row, col, queue, memo) {
-    //  add right, then down to queue
     if (col + 1 < NUM_TILES_WIDTH && !memo[row][col + 1]) {
         memo[row][col + 1] = true
         queue.push({
