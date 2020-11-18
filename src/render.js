@@ -20,10 +20,9 @@ let mazeGenerationSpeed = parseInt(slider.value)
 let mazeGenerationIndex = 0
 let mazeGenerationInterval
 
-const mazeClearSpeed = 1
+const mazeClearSpeed = 2
 let mazeClearIndex = 0
 let mazeClearInterval
-const order = generateDiagonalWaveTraversal(NUM_TILES_WIDTH, NUM_TILES_HEIGHT)
 
 export function renderMaze() {
     const currentMaze = maze.mazeStates[(mazeGenerationIndex >= maze.mazeStates.length) ? maze.mazeStates.length - 1 : mazeGenerationIndex]
@@ -80,6 +79,8 @@ export function renderMaze() {
 }
 
 export function clearMaze() {
+    const order = generateDiagonalWaveTraversal(NUM_TILES_WIDTH, NUM_TILES_HEIGHT)
+
     mazeClearIndex += mazeClearSpeed
     if (mazeClearIndex >= NUM_TILES_WIDTH * NUM_TILES_HEIGHT) {
         mazeClearIndex = NUM_TILES_WIDTH * NUM_TILES_HEIGHT

@@ -1,6 +1,6 @@
 //30
-let NUM_TILES_WIDTH = 10
-let NUM_TILES_HEIGHT = 10
+let NUM_TILES_WIDTH = 25
+let NUM_TILES_HEIGHT = 25
 
 const colors = {
     themeBlueForeground: '#292D3E',
