@@ -1,9 +1,31 @@
-import { NUM_TILES_HEIGHT, NUM_TILES_WIDTH } from './constants/constants.js'
+import { NUM_TILES_HEIGHT, NUM_TILES_WIDTH, setWidth, setHeight } from './constants/constants.js'
 import { renderMaze, clearMaze, resetClearMazeIndex, generateNewMaze } from './render.js'
 
 const canvas = document.getElementById('canvas')
 const generateMazeButton = document.getElementById('generateMazeButton')
 const clearMazeButton = document.getElementById('clearMazeButton')
+
+const dimensionInput1 = document.getElementById('dimensionInput1')
+const dimensionInput2 = document.getElementById('dimensionInput2')
+const dimensionHeader1 = document.getElementById('dimensionHeader1')
+const dimensionHeader2 = document.getElementById('dimensionHeader2')
+
+dimensionInput1.oninput = () => {
+    console.log(dimensionInput1.value)
+    setWidth(parseInt(dimensionInput1.value))
+    dimensionHeader1.innerText = 'Width: ' + dimensionInput1.value
+
+    generateNewMaze()
+    initCanvas()
+}
+
+dimensionInput2.oninput = () => {
+    setHeight(parseInt(dimensionInput2.value))
+    dimensionHeader2.innerText = 'Height: ' + dimensionInput2.value
+
+    generateNewMaze()
+    initCanvas()
+}
 
 let generateMazeInterval
 let clearMazeInterval
@@ -15,6 +37,7 @@ export let tileWidth, tileHeight
 
 let canGenerateMaze = true
 let canClearMaze = false
+
 
 generateMazeButton.onclick = () => {
     if (canGenerateMaze) {

@@ -13,7 +13,23 @@
         <div class="buttonContainer">
             <button id="generateMazeButton">Generate</button>
             <button id="clearMazeButton">Clear</button>
-            <input type="range" min="1" max="10" id="speedSlider">
+
+            <div class="rangeInput">
+                <h1 id="speedHeader">Speed: 6</h1>
+                <input type="range" min="1" max="9" id="speedSlider">
+            </div>
+        </div>
+
+        <div class="dimensionInput">
+            <div class="dimensionInput1Container">
+                <h2 id="dimensionHeader1">Width: 25</h2>
+                <input type="range" min="10" max="40" id="dimensionInput1">
+            </div>
+
+            <div class="dimensionInput2Container">
+                <h2 id="dimensionHeader2">Height: 25</h2>
+                <input type="range" min="10" max="40" id="dimensionInput2">
+            </div>
         </div>
     </div>
     <canvas id="canvas"></canvas>

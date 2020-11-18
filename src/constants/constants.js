@@ -1,7 +1,6 @@
-import { Maze } from '../algorithm/maze.js'
-
-const NUM_TILES_WIDTH = 30
-const NUM_TILES_HEIGHT = 30
+//30
+let NUM_TILES_WIDTH = 10
+let NUM_TILES_HEIGHT = 10
 
 const colors = {
     themeBlueForeground: '#292D3E',
@@ -13,5 +12,13 @@ const colors = {
     themeGray: '#A6ACB2'
 }
 
+function setWidth(width) {
+    NUM_TILES_WIDTH = width
+}
 
-export { NUM_TILES_WIDTH, NUM_TILES_HEIGHT, colors }
+function setHeight(height) {
+    NUM_TILES_HEIGHT = height
+}
+
+
+export { NUM_TILES_WIDTH, NUM_TILES_HEIGHT, colors, setWidth, setHeight }

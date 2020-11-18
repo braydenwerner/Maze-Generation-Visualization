@@ -4,6 +4,14 @@ import { tileWidth, tileHeight } from './index.js'
 import { Maze } from './algorithm/maze.js'
 
 const slider = document.getElementById('speedSlider')
+const speedHeader = document.getElementById('speedHeader')
+
+let maze = new Maze()
+
+slider.oninput = () => {
+    mazeGenerationSpeed = parseInt(slider.value)
+    speedHeader.innerText = 'Speed: ' + slider.value
+}
 
 const canvas = document.getElementById('canvas')
 const ctx = canvas.getContext('2d')
@@ -12,16 +20,10 @@ let mazeGenerationSpeed = parseInt(slider.value)
 let mazeGenerationIndex = 0
 let mazeGenerationInterval
 
-const mazeClearSpeed = 10
+const mazeClearSpeed = 1
 let mazeClearIndex = 0
 let mazeClearInterval
 const order = generateDiagonalWaveTraversal(NUM_TILES_WIDTH, NUM_TILES_HEIGHT)
-
-let maze = new Maze()
-
-slider.oninput = () => {
-    mazeGenerationSpeed = parseInt(slider.value)
-}
 
 export function renderMaze() {
     const currentMaze = maze.mazeStates[(mazeGenerationIndex >= maze.mazeStates.length) ? maze.mazeStates.length - 1 : mazeGenerationIndex]

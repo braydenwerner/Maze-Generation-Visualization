@@ -14,7 +14,52 @@ body {
   padding-right: 0;
   margin-left: auto;
   margin-right: auto;
-  display: block;
+  display: flex;
+}
+
+.rangeInput {
+  background: #292D3E;
+  text-align: center;
+  display: flex;
+  margin-left: 5px
+}
+
+.dimensionInput {
+  margin-top: 7px;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+}
+
+.dimensionInput1Container {
+  display: flex;
+  background: #292D3E;
+  margin-right: 5px;
+}
+
+.dimensionInput2Container {
+  display: flex;
+  background: #292D3E;
+  margin-left: 5px;
+}
+
+h1 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-right: 5px;
+  color: #A6ACB2;
+  margin-left: 5px;
+}
+
+h2 {
+  margin-top: 12px;
+  font-size: 10px;
+  font-weight: 700;
+  margin-right: 5px;
+  color: #A6ACB2;
+  margin-left: 5px;
 }
 
 canvas {
@@ -33,12 +78,15 @@ button {
   color: #A6ACB2;
   font-weight: 700;
   outline: none;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 input[type=range] {
   margin: 13.8px 0;
   background-color: transparent;
   -webkit-appearance: none;
+  margin-right: 5px;
 }
 
 input[type=range]:focus {
