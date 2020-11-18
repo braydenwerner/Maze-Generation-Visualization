@@ -11,7 +11,6 @@ const dimensionHeader1 = document.getElementById('dimensionHeader1')
 const dimensionHeader2 = document.getElementById('dimensionHeader2')
 
 dimensionInput1.oninput = () => {
-    console.log(dimensionInput1.value)
     setWidth(parseInt(dimensionInput1.value))
     dimensionHeader1.innerText = 'Width: ' + dimensionInput1.value
 
