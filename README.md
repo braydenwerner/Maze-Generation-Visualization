@@ -1,1 +1,1 @@
-[![Maze](https://img.youtube.com/vi/fKs5Y72Ylkg/0.jpg)](https://youtu.be/fKs5Y72Ylkg))
+[![Maze](https://imgur.com/a/6Nh9xh4g)](https://youtu.be/fKs5Y72Ylkg))
